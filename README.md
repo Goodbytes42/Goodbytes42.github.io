@@ -5,7 +5,6 @@ My Bio
 </canvas> 
 Score:
 <label id="myScore">0</label>
-</div>
 
 <script src="spaceshooter/game.js">
  
