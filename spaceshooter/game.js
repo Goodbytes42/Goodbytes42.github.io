@@ -126,7 +126,7 @@ function updateGame()
 		entitylist[e].update();
 		//console.log(entitylist[e].type+" dispose:"+entitylist[e].dispose);
 		if (entitylist[e].type == "enemy" && entitylist[e].inbounds(player.x,player.y,player.x+player.sprite.width, player.y+player.sprite.height)) {
-			var exp = new explosion(player.x,player.y, 30));
+			var exp = new explosion(player.x,player.y, 30);
 			context.drawImage(exp.sprite.image, exp.x, exp.y);
 			alert("You lose");
 			clearInterval(interval);
