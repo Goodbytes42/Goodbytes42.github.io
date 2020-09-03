@@ -1,7 +1,12 @@
 # Goodbytes42.github.io
 My Bio
-<div id="text"></div>
+
+<div onload="startGame()">
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000;background-color:#000000" onkeypress="handleInput(event)">
+</canvas> 
+Score:
+<label id="myScore">0</label>
+</div>
  
-<script>
-document.getElementById("text").innerHTML = "Text added by JavaScript code";
-</script>
+<script src="https://raw.githubusercontent.com/Goodbytes42/spacegame/master/game.js">
