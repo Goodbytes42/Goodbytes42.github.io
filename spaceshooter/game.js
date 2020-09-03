@@ -100,6 +100,7 @@ function sprite(width, height, source) {
 
 function startGame()
 {
+	console.log("Starting game");
 	interval = setInterval(updateGame, 20);
 	window.addEventListener('keydown', function (e) {
 		if (e.keyCode in keymap) {
