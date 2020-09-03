@@ -130,6 +130,7 @@ function updateGame()
 			drawCanvas();
 			alert("You lose");
 			clearInterval(interval);
+			return;
 		}
 		if (entitylist[e].dispose) {
 			context.clearRect(entitylist[e].x, entitylist[e].y, entitylist[e].sprite.width, entitylist[e].sprite.height);
