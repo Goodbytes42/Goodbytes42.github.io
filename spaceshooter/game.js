@@ -29,7 +29,6 @@ function laser(xsrc, ysrc, xvel, yvel) {
 		this.y+=yvel;
 		context.drawImage(this.sprite.image, this.x, this.y);
 		if (this.x < 0 || this.y < 0 || this.x > canvas.width - this.sprite.width || this.y > canvas.height - this.sprite.height) {
-			context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 			this.dispose = true;
 		}
 	}
@@ -47,7 +46,6 @@ function explosion(xsrc, ysrc, duration) {
 		this.duration--;
 		context.drawImage(this.sprite.image, this.x, this.y);
 		if (this.duration < 0) {
-			context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 			this.dispose = true;
 		}
 	}
@@ -126,7 +124,7 @@ function updateGame()
 {
 	for (e in entitylist) {
 		entitylist[e].update();
-		console.log(entitylist[e].type+" dispose:"+entitylist[e].dispose);
+		//console.log(entitylist[e].type+" dispose:"+entitylist[e].dispose);
 		if (entitylist[e].type == "enemy" && entitylist[e].inbounds(player.x,player.y,player.x+player.sprite.width, player.y+player.sprite.height)) {
 			entitylist.push( new explosion(player.x,player.y, 30));
 			drawCanvas();
@@ -134,6 +132,7 @@ function updateGame()
 			clearInterval(interval);
 		}
 		if (entitylist[e].dispose) {
+			context.clearRect(entitylist[e].x, entitylist[e].y, entitylist[e].sprite.width, entitylist[e].sprite.height);
 			if (entitylist[e].type == "laser") {
 				//entitylist.push( new explosion(entitylist[e].x,entitylist[e].y, 30));
 			}
