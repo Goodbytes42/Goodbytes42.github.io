@@ -1,3 +1,10 @@
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
 var keymap = {32: false, 37: false, 38: false, 39: false, 40: false};
