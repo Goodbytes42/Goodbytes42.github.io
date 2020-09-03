@@ -27,10 +27,11 @@ function laser(xsrc, ysrc, xvel, yvel) {
 		context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 		this.x+=xvel;
 		this.y+=yvel;
+		context.drawImage(this.sprite.image, this.x, this.y);
 		if (this.x < 0 || this.y < 0 || this.x > canvas.width - this.sprite.width || this.y > canvas.height - this.sprite.height) {
+			context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 			this.dispose = true;
 		}
-		context.drawImage(this.sprite.image, this.x, this.y);
 	}
 }
 
@@ -44,10 +45,11 @@ function explosion(xsrc, ysrc, duration) {
 	this.update = function() {
 		context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 		this.duration--;
+		context.drawImage(this.sprite.image, this.x, this.y);
 		if (this.duration < 0) {
+			context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 			this.dispose = true;
 		}
-		context.drawImage(this.sprite.image, this.x, this.y);
 	}
 }
 
