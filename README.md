@@ -9,4 +9,4 @@ Score:
 <label id="myScore">0</label>
 </div>
  
-<script src="game.js">
+<script src="spacegame/game.js">
