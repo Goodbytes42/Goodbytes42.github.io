@@ -65,6 +65,7 @@ function enemy(xsrc, ysrc, xvel, yvel) {
 		return true;
 	}
 	this.update = function() {
+		context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 		this.x+=xvel;
 		this.y+=yvel;
 		if (this.x < 0) {
@@ -79,6 +80,7 @@ function enemy(xsrc, ysrc, xvel, yvel) {
 		if (this.y > canvas.height - this.sprite.height) {
 			this.y = 0;
 		}
+		context.drawImage(entitylist[e].sprite.image, entitylist[e].x, entitylist[e].y);
 		for (a in entitylist) {
 			if (entitylist[a].type == "laser" && this.inbounds(entitylist[a].x,entitylist[a].y,entitylist[a].x+entitylist[a].sprite.width, entitylist[a].y+entitylist[a].sprite.height)) {
 				entitylist[a].dispose = true;
@@ -137,7 +139,8 @@ function updateGame()
 		}
 	}
 	handleInput();
-	drawCanvas();
+	context.drawImage(player.sprite.image, player.x, player.y);
+	//drawCanvas();
 	if (firecooldown>0) {
 		firecooldown--;
 	}
@@ -153,6 +156,7 @@ function updateGame()
 // left = 37 up = 38 right = 39 down = 40 space = 32
 
 function handleInput() {
+	context.clearRect(player.x, player.y, player.sprite.width, player.sprite.height);
 	if (keymap[37] && player.x > 0) {
 		player.x-=2;
 	}
@@ -172,7 +176,7 @@ function handleInput() {
 }
 
 function drawCanvas(){
-	clearCanvas();
+	//clearCanvas();
 	context.drawImage(player.sprite.image, player.x, player.y);
 	for (e in entitylist) {
 		context.drawImage(entitylist[e].sprite.image, entitylist[e].x, entitylist[e].y);
