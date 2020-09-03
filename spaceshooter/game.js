@@ -54,7 +54,7 @@ function enemy(xsrc, ysrc, xvel, yvel) {
 	this.yvel = yvel;
 	this.type = "enemy";
 	this.dispose = false;
-	this.sprite = new sprite(25, 25, "enemy.png");
+	this.sprite = new sprite(25, 25, "spaceshooter/enemy.png");
 	this.inbounds = function(x1,y1, x2, y2) {
 		if (x1 > this.x+this.sprite.width || this.x > x2) {
 			return false;
