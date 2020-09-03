@@ -24,11 +24,13 @@ function laser(xsrc, ysrc, xvel, yvel) {
 	this.dispose = false;
 	this.sprite = new sprite(25, 6, "spaceshooter/laser.png");
 	this.update = function() {
+		context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 		this.x+=xvel;
 		this.y+=yvel;
 		if (this.x < 0 || this.y < 0 || this.x > canvas.width - this.sprite.width || this.y > canvas.height - this.sprite.height) {
 			this.dispose = true;
 		}
+		context.drawImage(this.sprite.image, this.x, this.y);
 	}
 }
 
@@ -40,10 +42,12 @@ function explosion(xsrc, ysrc, duration) {
 	this.dispose = false;
 	this.sprite = new sprite(25, 25, "spaceshooter/explosion.png");
 	this.update = function() {
+		context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 		this.duration--;
 		if (this.duration < 0) {
 			this.dispose = true;
 		}
+		context.drawImage(this.sprite.image, this.x, this.y);
 	}
 }
 
