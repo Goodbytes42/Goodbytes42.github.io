@@ -107,7 +107,7 @@ function sprite(width, height, source) {
 function startGame()
 {
 	console.log("Starting game");
-	interval = setInterval(updateGame, 20);
+	interval = setInterval(updateGame, 15);
 	window.addEventListener('keydown', function (e) {
 		if (e.keyCode in keymap) {
 			keymap[e.keyCode] = true;
@@ -126,8 +126,8 @@ function updateGame()
 		entitylist[e].update();
 		//console.log(entitylist[e].type+" dispose:"+entitylist[e].dispose);
 		if (entitylist[e].type == "enemy" && entitylist[e].inbounds(player.x,player.y,player.x+player.sprite.width, player.y+player.sprite.height)) {
-			entitylist.push( new explosion(player.x,player.y, 30));
-			drawCanvas();
+			var exp = new explosion(player.x,player.y, 30));
+			context.drawImage(exp.sprite.image, exp.x, exp.y);
 			alert("You lose");
 			clearInterval(interval);
 			return;
