@@ -13,7 +13,7 @@ var player = {
 	y : 550,
 	width : 25,
 	height : 25,
-	sprite : new sprite(25, 25, "spaceshooter/sprite.png")
+	sprite : new sprite(25, 25, "sprite.png")
 }
 var firecooldown=0;
 var enemycooldown=100;
@@ -29,7 +29,7 @@ function laser(xsrc, ysrc, xvel, yvel) {
 	this.yvel = yvel;
 	this.type = "laser";
 	this.dispose = false;
-	this.sprite = new sprite(25, 6, "spaceshooter/laser.png");
+	this.sprite = new sprite(25, 6, "laser.png");
 	this.update = function() {
 		context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 		this.x+=xvel;
@@ -47,7 +47,7 @@ function explosion(xsrc, ysrc, duration) {
 	this.type = "explosion";
 	this.duration = duration;
 	this.dispose = false;
-	this.sprite = new sprite(25, 25, "spaceshooter/explosion.png");
+	this.sprite = new sprite(25, 25, "explosion.png");
 	this.update = function() {
 		context.clearRect(this.x, this.y, this.sprite.width, this.sprite.height);
 		this.duration--;
@@ -65,7 +65,7 @@ function enemy(xsrc, ysrc, xvel, yvel) {
 	this.yvel = yvel;
 	this.type = "enemy";
 	this.dispose = false;
-	this.sprite = new sprite(25, 25, "spaceshooter/enemy.png");
+	this.sprite = new sprite(25, 25, "enemy.png");
 	this.inbounds = function(x1,y1, x2, y2) {
 		if (x1 > this.x+this.sprite.width || this.x > x2) {
 			return false;
