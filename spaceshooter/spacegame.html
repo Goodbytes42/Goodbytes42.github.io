@@ -2,13 +2,11 @@
 <head>
   <title>PEW PEW</title>
 </head>
-<body onload="startGame()">
-
-<canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000;background-color:#000000" onkeypress="handleInput(event)">
-</canvas> 
-<br>
-Score:
-<label id="myScore">0</label>
-
-<script src="game.js"></script>
+<body onload="startGame()" style="background-color: black; color: white">
+  <h3>I made this over lunch one day...</h3>
+  <canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000;background-color:#000000;padding-left: 0;padding-right: 0;margin-left: auto;margin-right: auto;display: block;" onkeypress="handleInput(event)">
+  </canvas> 
+  <br>
+  <strong>Score:<label id="myScore">0</label></strong>
+  <script src="game.js"></script>
 </body>
